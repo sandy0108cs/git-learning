@@ -1,1 +1,186 @@
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example
+$ git init
+Initialized empty Git repository in C:/Users/91799/Videos/example/.git/
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git remote add origin "https://github.com/sandy0108cs/git-learning.git"
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git pull origin master
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 622 bytes | 77.00 KiB/s, done.
+From https://github.com/sandy0108cs/git-learning
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello world.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git add hello\ world.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hello world.txt
+
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git commit -m "commiting learning exm"
+[master c5a5803] commiting learning exm
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello world.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        t1.txt
+        t2 - Copy.txt
+        t2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git add -A
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   t1.txt
+        new file:   t2 - Copy.txt
+        new file:   t2.txt
+
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git -a -m "commiting all the file together"
+unknown option: -a
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git commit -a -m "commiting all the file together"
+[master 6c9bf9d] commiting all the file together
+ 3 files changed, 3 insertions(+)
+ create mode 100644 t1.txt
+ create mode 100644 t2 - Copy.txt
+ create mode 100644 t2.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git log
+commit 6c9bf9dc3029af3e462fab6085e7aeb220f804ae (HEAD -> master)
+Author: sandy0108cs <parihars369@gmail.com>
+Date:   Wed Aug 26 09:24:43 2020 +0530
+
+    commiting all the file together
+
+commit c5a58034845a106a8f5ea3179b7cf9d4ad365841
+Author: sandy0108cs <parihars369@gmail.com>
+Date:   Wed Aug 26 09:22:24 2020 +0530
+
+    commiting learning exm
+
+commit 06b5b1170372beae1f43a8b7acfce4391dedebc4 (origin/master)
+Author: Sandeep Parihar <69898222+sandy0108cs@users.noreply.github.com>
+Date:   Wed Aug 26 09:15:29 2020 +0530
+
+    Initial commit
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git branch newbranch
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git checkout newbranch
+Switched to branch 'newbranch'
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ ls
+'hello world.txt'   README.md   t1.txt  't2 - Copy.txt'   t2.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git add new\ t1.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git status
+On branch newbranch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   new t1.txt
+
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git commit -m "commiting new file in new branch"
+[newbranch dd30cc8] commiting new file in new branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new t1.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git checkout master
+Switched to branch 'master'
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git merge newbranch
+Updating 6c9bf9d..dd30cc8
+Fast-forward
+ new t1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new t1.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ ls
+'hello world.txt'  'new t1.txt'   README.md   t1.txt  't2 - Copy.txt'   t2.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git rebase master
+Current branch newbranch is up to date.
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (newbranch)
+$ git checkout master
+Switched to branch 'master'
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git rebase newbranch
+Current branch master is up to date.
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ ls
+'hello world.txt'  'new t1.txt'   README.md   t1.txt  't2 - Copy.txt'   t2.txt
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ cat new\ t1.txt
 this is made in new branch
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+91799@LAPTOP-B72SASGE MINGW64 ~/Videos/example (master)
+$
